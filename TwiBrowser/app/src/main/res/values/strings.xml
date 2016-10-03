@@ -1,3 +1,12 @@
 <resources>
+    <!-- タイトル -->
     <string name="app_name">TwiBrowser</string>
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- Twitter4j                                                                               -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////// -->
+    <string name="twitter_consumer_key">KnfNeBORVwxdVZSAwQM1VRJzP</string>
+    <string name="twitter_consumer_secret">az3OyYufgT8CF6TV4HuHNhZKHgkX5HjKhkWIaJ9HLs7L5NHqcL</string>
+    <string name="twitter_auth_callback">twibrowser://twitterlogin</string>
+
 </resources>
