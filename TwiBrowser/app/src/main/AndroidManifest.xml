@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- スプラッシュ画面 -->
-        <activity android:name=".SplashActivity">
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,10 +20,10 @@
             </intent-filter>
         </activity>
         <!-- トップ画面 -->
-        <activity android:name=".TopActivity" />
+        <activity android:name=".activity.TopListActivity" />
         <!-- Twitterログイン -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

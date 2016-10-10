@@ -1,8 +1,11 @@
-package ss.ss.sss.twibrowser;
+package ss.ss.sss.twibrowser.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import ss.ss.sss.twibrowser.R;
+import ss.ss.sss.twibrowser.utils.TwitterUtils;
 
 /**
  * スプラッシュ画面
@@ -41,7 +44,7 @@ public class SplashActivity extends BaseActivity {
 
         public void run() {
             // スプラッシュ完了後に実行するActivityを指定
-            Intent intent = new Intent(getApplication(), TopActivity.class);
+            Intent intent = new Intent(getApplication(), TopListActivity.class);
             startActivity(intent);
             overridePendingTransition(0, 0);
             // SplashActivityを終了

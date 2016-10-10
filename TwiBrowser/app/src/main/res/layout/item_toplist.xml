@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_roundcorners"
+    android:orientation="vertical">
+
+    <!-- リツイート情報 -->
+    <TextView
+        android:id="@+id/adapter_toplist_retweet_info_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="#F0F0F0"
+        android:drawableLeft="@drawable/ic_retweet"
+        android:textSize="@dimen/toplist_message_text_size"
+        android:visibility="gone" />
+
+    <!-- ヘッダー -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:orientation="horizontal">
+
+        <!-- サムネイル -->
+        <ss.ss.sss.twibrowser.view.RoundImageView
+            android:id="@+id/adapter_toplist_thumbnail_imageview"
+            android:layout_width="@dimen/toplist_thumbnail_size"
+            android:layout_height="@dimen/toplist_thumbnail_size"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical">
+
+            <!-- ユーザ名 -->
+            <TextView
+                android:id="@+id/adapter_toplist_username_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/toplist_username_text_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- スクリーン名 -->
+                <TextView
+                    android:id="@+id/adapter_toplist_screenname_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/toplist_screenname_text_size" />
+
+                <!-- 時間 -->
+                <TextView
+                    android:id="@+id/adapter_toplist_time_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 区切り線 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@drawable/shape_shadow" />
+
+    <!-- メッセージ -->
+    <TextView
+        android:id="@+id/adapter_toplist_message_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:autoLink="all"
+        android:textSize="@dimen/toplist_message_text_size" />
+
+    <!-- 画像レイアウト -->
+    <HorizontalScrollView
+        android:id="@+id/adapter_toplist_imagelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:visibility="gone">
+
+        <!-- 写真 -->
+        <LinearLayout
+            android:id="@+id/adapter_toplist_photo_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <!-- 区切り線 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@drawable/shape_shadow_reverse" />
+
+    <!-- フッター -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <!-- 返信 -->
+        <Button
+            android:id="@+id/adapter_toplist_replay_button"
+            android:layout_width="@dimen/toplist_footer_button_size"
+            android:layout_height="@dimen/toplist_footer_button_size"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/ic_reply" />
+
+        <!-- リツイート数 -->
+        <TextView
+            android:id="@+id/adapter_toplist_retweet_textview"
+            android:layout_width="@dimen/toplist_footer_button_size"
+            android:layout_height="@dimen/toplist_footer_button_size"
+            android:layout_centerInParent="true"
+            android:gravity="center" />
+        <!-- リツイート -->
+        <Button
+            android:id="@+id/adapter_toplist_retweet_button"
+            android:layout_width="@dimen/toplist_footer_button_size"
+            android:layout_height="@dimen/toplist_footer_button_size"
+            android:layout_gravity="center"
+            android:layout_toLeftOf="@id/adapter_toplist_retweet_textview"
+            android:background="@drawable/ic_retweet" />
+
+        <!-- お気に入り数 -->
+        <TextView
+            android:id="@+id/adapter_toplist_favorite_textview"
+            android:layout_width="@dimen/toplist_footer_button_size"
+            android:layout_height="@dimen/toplist_footer_button_size"
+            android:layout_alignParentRight="true"
+            android:gravity="center" />
+        <!-- お気に入り -->
+        <Button
+            android:id="@+id/adapter_toplist_favorite_button"
+            android:layout_width="@dimen/toplist_footer_button_size"
+            android:layout_height="@dimen/toplist_footer_button_size"
+            android:layout_gravity="right|end"
+            android:layout_toLeftOf="@id/adapter_toplist_favorite_textview"
+            android:background="@drawable/selector_favorite_button" />
+    </RelativeLayout>
+</LinearLayout>

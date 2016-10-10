@@ -2,4 +2,38 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- ////////////////////////////////////////////////////////// -->
+    <!-- Common -->
+    <!-- ////////////////////////////////////////////////////////// -->
+
+    <!-- ## ツールバー高さ -->
+    <dimen name="common_toolbar_height">50dp</dimen>
+    <!-- ## ツールバー文字サイズ -->
+    <dimen name="common_toolbar_text_size">25dp</dimen>
+    <!-- ## ツールバーメニューサイズ -->
+    <dimen name="common_toolbar_icon_size">30dp</dimen>
+
+    <!-- ////////////////////////////////////////////////////////// -->
+    <!-- TopListActivity                                            -->
+    <!-- ////////////////////////////////////////////////////////// -->
+
+    <!-- ## サムネイルサイズ -->
+    <dimen name="toplist_thumbnail_size">50dp</dimen>
+
+    <!-- ## ユーザ名文字サイズ -->
+    <dimen name="toplist_username_text_size">20sp</dimen>
+    <!-- ## スクリーン名文字サイズ -->
+    <dimen name="toplist_screenname_text_size">15sp</dimen>
+    <!-- ## メッセージ文字サイズ -->
+    <dimen name="toplist_message_text_size">18sp</dimen>
+
+    <!-- ## 添付画像サイズ -->
+    <dimen name="toplist_image_size">220dp</dimen>
+    <!-- ## 添付画像再生ボタンサイズ -->
+    <dimen name="toplist_play_image_size">25dp</dimen>
+
+    <!-- ## フッターボタンサイズ -->
+    <dimen name="toplist_footer_button_size">30dp</dimen>
+
 </resources>

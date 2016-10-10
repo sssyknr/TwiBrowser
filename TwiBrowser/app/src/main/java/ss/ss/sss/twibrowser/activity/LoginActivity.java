@@ -1,4 +1,4 @@
-package ss.ss.sss.twibrowser;
+package ss.ss.sss.twibrowser.activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import ss.ss.sss.twibrowser.R;
+import ss.ss.sss.twibrowser.utils.TwitterUtils;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.auth.AccessToken;
@@ -69,7 +71,7 @@ public class LoginActivity extends BaseActivity {
      */
     private void successOAuth(AccessToken accessToken) {
         TwitterUtils.storeAccessToken(this, accessToken);
-        Intent intent = new Intent(this, TopActivity.class);
+        Intent intent = new Intent(this, TopListActivity.class);
         startActivity(intent);
         finish();
     }

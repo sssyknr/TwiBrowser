@@ -26,4 +26,10 @@ dependencies {
 
     // Twitter4j
     compile 'org.twitter4j:twitter4j-core:4.0.5'
+    // picasso
+    compile 'com.squareup.picasso:picasso:2.3.3'
+    // pull to refresh
+    compile 'com.navercorp.pulltorefresh:library:3.2.0@aar'
+    // design support library
+    compile 'com.android.support:design:23.3.0'
 }

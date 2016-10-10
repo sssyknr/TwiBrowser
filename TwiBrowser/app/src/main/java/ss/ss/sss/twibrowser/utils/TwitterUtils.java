@@ -1,8 +1,9 @@
-package ss.ss.sss.twibrowser;
+package ss.ss.sss.twibrowser.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import ss.ss.sss.twibrowser.R;
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;

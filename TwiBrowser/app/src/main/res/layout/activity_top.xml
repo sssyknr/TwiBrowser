@@ -1,10 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_top_drawerlayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
-    <ListView
-        android:id="@+id/activity_top_listview"
+    <!-- コンテンツ -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:orientation="vertical">
+
+        <!-- ツールバー -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_toolbar_height"
+            android:background="#0000FF"
+            android:orientation="horizontal">
+
+            <!-- メニュー -->
+            <Button
+                android:id="@+id/activity_top_menu_button"
+                android:layout_width="@dimen/common_toolbar_icon_size"
+                android:layout_height="@dimen/common_toolbar_icon_size"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/ic_menu" />
+
+            <!-- タイトル -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/common_toolbar_text_size"
+                android:textStyle="bold" />
+
+            <!-- 更新ボタン -->
+            <Button
+                android:id="@+id/activity_top_update_button"
+                android:layout_width="@dimen/common_toolbar_icon_size"
+                android:layout_height="@dimen/common_toolbar_icon_size"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/ic_refresh" />
+        </LinearLayout>
+
+        <!-- 区切り線 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="@drawable/shape_shadow" />
+
+        <ListView
+            android:id="@+id/activity_top_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:divider="@null"
+            android:dividerHeight="4dp" />
+    </LinearLayout>
+
+    <!-- ドロワー -->
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/item_drawer_header"
+        app:menu="@menu/common_drawer" />
+</android.support.v4.widget.DrawerLayout>
