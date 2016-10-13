@@ -36,6 +36,7 @@
                     android:scheme="twibrowser" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.SettingThemeActivity" />
     </application>
 
 </manifest>

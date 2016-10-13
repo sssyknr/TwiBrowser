@@ -23,6 +23,6 @@ public class TimelineParamDto {
      */
     public TimelineParamDto() {
         this.page = new Paging();
-        this.page.setCount(50);
+        this.page.setCount(200);
     }
 }

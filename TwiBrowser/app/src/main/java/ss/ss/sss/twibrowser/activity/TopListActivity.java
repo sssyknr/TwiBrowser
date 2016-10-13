@@ -1,22 +1,25 @@
 package ss.ss.sss.twibrowser.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.ListView;
+
+import java.util.List;
 
 import ss.ss.sss.twibrowser.R;
 import ss.ss.sss.twibrowser.activity.adapter.TopListAdapter;
 import ss.ss.sss.twibrowser.dto.TimelineParamDto;
 import ss.ss.sss.twibrowser.task.TimelineTask;
+import ss.ss.sss.twibrowser.utils.PreferenceUtils;
+import ss.ss.sss.twibrowser.utils.SerializableUtils;
 import twitter4j.ExtendedMediaEntity;
 import twitter4j.ResponseList;
 import twitter4j.Status;
@@ -27,7 +30,7 @@ import twitter4j.Status;
  *     つぶやきをリスト表示します。
  * </pre>
  */
-public class TopListActivity extends BaseActivity implements View.OnClickListener, AbsListView.OnScrollListener, TopListAdapter.OnTopListClickListener {
+public class TopListActivity extends BaseActivity implements View.OnClickListener, AbsListView.OnScrollListener, SwipeRefreshLayout.OnRefreshListener, TopListAdapter.OnTopListClickListener {
 
     // ////////////////////////////////////////////////////////
     // Private Field
@@ -35,20 +38,14 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
 
     /** ドロワー */
     private DrawerLayout mDrawerLayout;
-    /** 更新ボタン */
-    private Button mUpdateButton;
+    /** スワイプリフレッシュレイアウト */
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     /** リスト */
     private ListView mListView;
     /** - フッター */
     private View mFooterView;
     /** アダプター */
     private TopListAdapter mAdapter;
-
-    /** リクエストパラメータDto */
-    private TimelineParamDto mParamDto;
-
-    /** 更新ボタンアニメーション */
-    private RotateAnimation animation;
 
     // ////////////////////////////////////////////////////////
     // Override Method
@@ -59,16 +56,16 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top);
 
-        // 初期化
-        mParamDto = new TimelineParamDto();
-
         // ナビゲーションドロワー
         mDrawerLayout = (DrawerLayout) findViewById(R.id.activity_top_drawerlayout);
+        ((NavigationView)findViewById(R.id.activity_top_navigationview)).setNavigationItemSelectedListener(this);
 
         // ツールバー
         findViewById(R.id.activity_top_menu_button).setOnClickListener(this);
-        mUpdateButton = (Button) findViewById(R.id.activity_top_update_button);
-        mUpdateButton.setOnClickListener(this);
+
+        // スワイプリフレッシュレイアウト
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_top_swiperefreshlayout);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
 
         // リスト
         mAdapter = new TopListAdapter(this, this);
@@ -77,8 +74,19 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
         mListView.setOnScrollListener(this);
         mListView.setAdapter(mAdapter);
 
+        // 前回取得済みのタイムラインと位置を取得
+        int id = TimelineTaskCallback.ID.INIT;
+        int position = PreferenceUtils.readInteger(this, PreferenceUtils.Key.PREV_CASSETTE_POSITION, 0);
+        int offset = PreferenceUtils.readInteger(this, PreferenceUtils.Key.PREV_CASSETTE_OFFSET, 0);
+        List<Status> items = SerializableUtils.load(this);
+        if (items != null) {
+            mAdapter.addAll(items);
+            mListView.setSelectionFromTop(position, offset);
+            id = TimelineTaskCallback.ID.NEW;
+        }
+
         // ローダー初期化
-        getSupportLoaderManager().initLoader(TimelineTaskCallback.ID.INIT, null, new TimelineTaskCallback());
+        getSupportLoaderManager().initLoader(id, null, new TimelineTaskCallback());
     }
 
     @Override
@@ -86,6 +94,12 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
         super.onPause();
         // ドロワー
         mDrawerLayout.closeDrawer(GravityCompat.START);
+        // 取得したタイムラインを保持しておく。
+        int position = mListView.getFirstVisiblePosition();
+        int offset = mListView.getChildAt(0).getTop();
+        PreferenceUtils.writeInteger(this, PreferenceUtils.Key.PREV_CASSETTE_POSITION, position);
+        PreferenceUtils.writeInteger(this, PreferenceUtils.Key.PREV_CASSETTE_OFFSET, offset);
+        SerializableUtils.save(mAdapter.getItemsForCache(position), this);
     }
 
     @Override
@@ -93,20 +107,23 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
         int id = view.getId();
         if (id == R.id.activity_top_menu_button) {  // メニュー
             mDrawerLayout.openDrawer(GravityCompat.START);
-        } else if (id == R.id.activity_top_update_button) { // 更新
-            updateReading();
         }
     }
 
     @Override
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public void onRefresh() {
+        updateReading();
+    }
 
+    @Override
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        // isEmpty
     }
 
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem,
                          int visibleItemCount, int totalItemCount) {
-        if (totalItemCount == firstVisibleItem + visibleItemCount) {    // 最後のカセット
+        if (mAdapter.getItems().size() != 0 && totalItemCount == firstVisibleItem + visibleItemCount) {    // 最後のカセット
             additionalReading();
         }
     }
@@ -178,15 +195,6 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
             return;
         }
 
-        long id = mAdapter.getAdditionalRedingId();
-        if (id < 0) {
-            return;
-        }
-        /*
-         * さらよみの基準とするIDが返却値に含まれないように -1 して設定する。
-         */
-        mParamDto.page.setMaxId(id - 1);
-
         // 読み込みダイアログ
         mListView.addFooterView(mFooterView);
 
@@ -198,27 +206,6 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
      * 更新
      */
     private void updateReading() {
-
-        if (animation != null) {    // 更新中
-            return;
-        }
-
-        long id = mAdapter.getUpdateReadingId();
-        if (id < 0) {
-            return;
-        }
-        /*
-         * 更新の基準とするIDが返却値に含まれないように +1 して設定する。
-         */
-        mParamDto.page.setSinceId(id);
-
-        // 更新中はアニメーション
-        animation = new RotateAnimation(0, 360, mUpdateButton.getWidth() / 2, mUpdateButton.getHeight() / 2);
-        animation.setDuration(1000);
-        animation.setRepeatCount(-1);
-        animation.setRepeatMode(Animation.RESTART);
-        mUpdateButton.startAnimation(animation);
-
         // 読み込み
         getSupportLoaderManager().initLoader(TimelineTaskCallback.ID.NEW, null, new TimelineTaskCallback());
     }
@@ -248,7 +235,24 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
         @Override
         public Loader<ResponseList<Status>> onCreateLoader(int id, Bundle args) {
             this.id = id;
-            return new TimelineTask(getApplicationContext(), mParamDto);
+            TimelineParamDto dto = new TimelineParamDto();
+            if (ID.NEW == id) {    // 更新
+                long sinceId = mAdapter.getSinceId();
+                if (sinceId > 0) {
+                    dto.page.setSinceId(sinceId);
+                } else {
+                    mSwipeRefreshLayout.setRefreshing(false);
+                    return null;
+                }
+            } else if (ID.OLD == id) {  // 過去分
+                long maxId = mAdapter.getMaxId();
+                if (maxId > 0) {
+                    dto.page.setMaxId(maxId);
+                } else {
+                    return null;
+                }
+            }
+            return new TimelineTask(getApplicationContext(), dto);
         }
 
         @Override
@@ -256,28 +260,32 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
             if (data == null || data.size() == 0) {
                 // ダイアログ削除
                 mListView.removeFooterView(mFooterView);
-                // 更新アニメーション終了
-                if (animation != null) {
-                    animation.cancel();
-                    animation = null;
-                }
                 return;
             }
 
+            // 表示位置記憶
+            int position = 0;
+            int offset = 0;
+            if (mListView.getChildAt(0) != null) {
+                position = mListView.getFirstVisiblePosition();
+                offset = mListView.getChildAt(0).getTop();
+            }
+
             // 読み込みカセット追加
-            if (ID.INIT == id || ID.OLD == id) {    // 過去
+            if (ID.INIT == id || ID.OLD == id) {    // 初回・過去
                 mAdapter.addAll(data);
-            } else if (ID.NEW == id){    // 初回・未来
+            } else if (ID.NEW == id){    // 未来
+                position += data.size();
                 mAdapter.addAllTop(data);
             }
 
+            // 表示位置設定
+            mListView.setSelectionFromTop(position, offset);
+
             // ダイアログ削除
             mListView.removeFooterView(mFooterView);
-            // 更新アニメーション終了
-            if (animation != null) {
-                animation.cancel();
-                animation = null;
-            }
+            // 引っ張って更新終了
+            mSwipeRefreshLayout.setRefreshing(false);
         }
 
         @Override
@@ -285,12 +293,8 @@ public class TopListActivity extends BaseActivity implements View.OnClickListene
 
             // ダイアログ削除
             mListView.removeFooterView(mFooterView);
-            // 更新アニメーション終了
-            if (animation != null) {
-                animation.cancel();
-                animation = null;
-            }
+            // 引っ張って更新終了
+            mSwipeRefreshLayout.setRefreshing(false);
         }
     }
-
 }

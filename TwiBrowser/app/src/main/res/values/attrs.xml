@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Theme">
+        <!-- ////////////////////////////////////////////////////////// -->
+        <!-- drawer                                                     -->
+        <!-- ////////////////////////////////////////////////////////// -->
+
+        <!-- ## ドロワーヘッダー -->
+        <attr name="drawerHeaderBackground" format="color" />
+
+        <!-- ////////////////////////////////////////////////////////// -->
+        <!-- splash                                                     -->
+        <!-- ////////////////////////////////////////////////////////// -->
+
+        <!-- ## スプラッシュ背景色 -->
+        <attr name="splashBackground" format="color" />
+        <!-- スプラッシュ文字色 -->
+        <attr name="splashTextColor" format="color" />
+
+        <!-- ////////////////////////////////////////////////////////// -->
+        <!-- toolbar                                                    -->
+        <!-- ////////////////////////////////////////////////////////// -->
+
+        <!-- ツールバー背景色 -->
+        <attr name="toolbarBackground" format="color" />
+        <!-- ツールバー文字色 -->
+        <attr name="toolbarTextColor" format="color" />
+        <!-- ツールバー更新ボタン -->
+        <attr name="toolbarUpdateButton" format="reference" />
+        <!-- ツールバーメニューボタン -->
+        <attr name="toolbarMenuButton" format="reference" />
+
+        <!-- ////////////////////////////////////////////////////////// -->
+        <!-- window                                                     -->
+        <!-- ////////////////////////////////////////////////////////// -->
+
+        <!-- 画面背景色 -->
+        <attr name="windowBackground" format="color" />
+
+        <!-- ////////////////////////////////////////////////////////// -->
+        <!-- cassette                                                   -->
+        <!-- ////////////////////////////////////////////////////////// -->
+
+        <!-- カセットリツイート背景色 -->
+        <attr name="cassetteRetweetBackground" format="color" />
+        <!-- カセットリツイートテキスト -->
+        <attr name="cassetteRetweetTextColor" format="color" />
+        <!-- カセット背景色 -->
+        <attr name="cassetteBackground" format="color" />
+        <!-- カセット文字色 -->
+        <attr name="cassetteTextColor" format="color" />
+        <!-- カセット返信ボタン -->
+        <attr name="cassetteReplayButton" format="reference" />
+        <!-- カセットリツイートボタン -->
+        <attr name="cassetteRetweetButton" format="reference" />
+        <!-- カセットお気に入りボタン -->
+        <attr name="cassetteFavoriteButton" format="reference" />
+
+
+    </declare-styleable>
+</resources>

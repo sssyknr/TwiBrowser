@@ -8,4 +8,367 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- 参照：https://material.google.com/style/color.html#color-color-palette -->
+
+    <!-- 赤テーマ -->
+    <style name="RedTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#D32F2F</item>
+        <item name="splashBackground">#F44336</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#F44336</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#FFEBEE</item>
+        <item name="cassetteRetweetBackground">#E57373</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#FFCDD2</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- ピンクテーマ -->
+    <style name="PinkTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#C2185B</item>
+        <item name="splashBackground">#E91E63</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#E91E63</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#FCE4EC</item>
+        <item name="cassetteRetweetBackground">#F06292</item>
+        <item name="cassetteRetweetTextColor">@android:color/white</item>
+        <item name="cassetteBackground">#F8BBD0</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- 紫テーマ -->
+    <style name="PurpleTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#7B1FA2</item>
+        <item name="splashBackground">#9C27B0</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#9C27B0</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#F3E5F5</item>
+        <item name="cassetteRetweetBackground">#BA68C8</item>
+        <item name="cassetteRetweetTextColor">@android:color/white</item>
+        <item name="cassetteBackground">#E1BEE7</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- ディープパープルテーマ -->
+    <style name="DeepPurpleTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#512DA8</item>
+        <item name="splashBackground">#673AB7</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#673AB7</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#EDE7F6</item>
+        <item name="cassetteRetweetBackground">#9575CD</item>
+        <item name="cassetteRetweetTextColor">@android:color/white</item>
+        <item name="cassetteBackground">#D1C4E9</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- インディゴテーマ -->
+    <style name="IndigoTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#303F9F</item>
+        <item name="splashBackground">#3F51B5</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#3F51B5</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#E8EAF6</item>
+        <item name="cassetteRetweetBackground">#7986CB</item>
+        <item name="cassetteRetweetTextColor">@android:color/white</item>
+        <item name="cassetteBackground">#C5CAE9</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- 青テーマ -->
+    <style name="BlueTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#1976D2</item>
+        <item name="splashBackground">#2196F3</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#2196F3</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#E3F2FD</item>
+        <item name="cassetteRetweetBackground">#64B5F6</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#BBDEFB</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- ライトブルーテーマ -->
+    <style name="LightBlueTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#0288D1</item>
+        <item name="splashBackground">#03A9F4</item>
+        <item name="splashTextColor">@android:color/black</item>
+        <item name="toolbarBackground">#03A9F4</item>
+        <item name="toolbarTextColor">@android:color/black</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_black</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_black</item>
+        <item name="windowBackground">#E1F5FE</item>
+        <item name="cassetteRetweetBackground">#4FC3F7</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#B3E5FC</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- シアンテーマ -->
+    <style name="CyanTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#0097A7</item>
+        <item name="splashBackground">#00BCD4</item>
+        <item name="splashTextColor">@android:color/black</item>
+        <item name="toolbarBackground">#00BCD4</item>
+        <item name="toolbarTextColor">@android:color/black</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_black</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_black</item>
+        <item name="windowBackground">#E0F7FA</item>
+        <item name="cassetteRetweetBackground">#4DD0E1</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#B2EBF2</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- ティールテーマ -->
+    <style name="TealTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#00796B</item>
+        <item name="splashBackground">#009688</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#009688</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#E0F2F1</item>
+        <item name="cassetteRetweetBackground">#4DB6AC</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#B2DFDB</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- 緑テーマ -->
+    <style name="GreenTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#388E3C</item>
+        <item name="splashBackground">#4CAF50</item>
+        <item name="splashTextColor">@android:color/black</item>
+        <item name="toolbarBackground">#4CAF50</item>
+        <item name="toolbarTextColor">@android:color/black</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_black</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_black</item>
+        <item name="windowBackground">#E8F5E9</item>
+        <item name="cassetteRetweetBackground">#81C784</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#C8E6C9</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- ライトグリーンテーマ -->
+    <style name="LightGreenTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#689F38</item>
+        <item name="splashBackground">#8BC34A</item>
+        <item name="splashTextColor">@android:color/black</item>
+        <item name="toolbarBackground">#8BC34A</item>
+        <item name="toolbarTextColor">@android:color/black</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_black</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_black</item>
+        <item name="windowBackground">#F1F8E9</item>
+        <item name="cassetteRetweetBackground">#AED581</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#DCEDC8</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- ライムテーマ -->
+    <style name="LimeTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#AFB42B</item>
+        <item name="splashBackground">#CDDC39</item>
+        <item name="splashTextColor">@android:color/black</item>
+        <item name="toolbarBackground">#CDDC39</item>
+        <item name="toolbarTextColor">@android:color/black</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_black</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_black</item>
+        <item name="windowBackground">#F9FBE7</item>
+        <item name="cassetteRetweetBackground">#DCE775</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#F0F4C3</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- 黄テーマ -->
+    <style name="YellowTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#FBC02D</item>
+        <item name="splashBackground">#FFEB3B</item>
+        <item name="splashTextColor">@android:color/black</item>
+        <item name="toolbarBackground">#FFEB3B</item>
+        <item name="toolbarTextColor">@android:color/black</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_black</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_black</item>
+        <item name="windowBackground">#FFFDE7</item>
+        <item name="cassetteRetweetBackground">#FFF176</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#FFF9C4</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- アンバーテーマ -->
+    <style name="AmberTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#FFA000</item>
+        <item name="splashBackground">#FFC107</item>
+        <item name="splashTextColor">@android:color/black</item>
+        <item name="toolbarBackground">#FFC107</item>
+        <item name="toolbarTextColor">@android:color/black</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_black</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_black</item>
+        <item name="windowBackground">#FFF8E1</item>
+        <item name="cassetteRetweetBackground">#FFD54F</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#FFECB3</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- オレンジテーマ -->
+    <style name="OrangeTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#F57C00</item>
+        <item name="splashBackground">#FF9800</item>
+        <item name="splashTextColor">@android:color/black</item>
+        <item name="toolbarBackground">#FF9800</item>
+        <item name="toolbarTextColor">@android:color/black</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_black</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_black</item>
+        <item name="windowBackground">#FFF3E0</item>
+        <item name="cassetteRetweetBackground">#FFB74D</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#FFE0B2</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- ディープオレンジテーマ -->
+    <style name="DeepOrangeTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#E64A19</item>
+        <item name="splashBackground">#FF5722</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#FF5722</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#FBE9E7</item>
+        <item name="cassetteRetweetBackground">#FF8A65</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#FFCCBC</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- ブラウンテーマ -->
+    <style name="BrownTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#5D4037</item>
+        <item name="splashBackground">#795548</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#795548</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#EFEBE9</item>
+        <item name="cassetteRetweetBackground">#A1887F</item>
+        <item name="cassetteRetweetTextColor">@android:color/white</item>
+        <item name="cassetteBackground">#D7CCC8</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- グレーテーマ -->
+    <style name="GreyTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#616161</item>
+        <item name="splashBackground">#9E9E9E</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#9E9E9E</item>
+        <item name="toolbarTextColor">@android:color/black</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_black</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_black</item>
+        <item name="windowBackground">#FAFAFA</item>
+        <item name="cassetteRetweetBackground">#E0E0E0</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#F5F5F5</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
+    <!-- ブルーグレーテーマ -->
+    <style name="BlueGreyTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="drawerHeaderBackground">#455A64</item>
+        <item name="splashBackground">#607D8B</item>
+        <item name="splashTextColor">@android:color/white</item>
+        <item name="toolbarBackground">#607D8B</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="toolbarUpdateButton">@drawable/ic_refresh_white</item>
+        <item name="toolbarMenuButton">@drawable/ic_menu_white</item>
+        <item name="windowBackground">#ECEFF1</item>
+        <item name="cassetteRetweetBackground">#90A4AE</item>
+        <item name="cassetteRetweetTextColor">@android:color/black</item>
+        <item name="cassetteBackground">#CFD8DC</item>
+        <item name="cassetteTextColor">@android:color/black</item>
+        <item name="cassetteReplayButton">@drawable/ic_reply_black</item>
+        <item name="cassetteRetweetButton">@drawable/ic_retweet_black</item>
+        <item name="cassetteFavoriteButton">@drawable/selector_favorite_button_black</item>
+    </style>
+
 </resources>

@@ -2,6 +2,7 @@ package ss.ss.sss.twibrowser.task;
 
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
+import android.util.Log;
 
 import ss.ss.sss.twibrowser.dto.TimelineParamDto;
 import ss.ss.sss.twibrowser.utils.TwitterUtils;
@@ -72,6 +73,7 @@ public class TimelineTask extends AsyncTaskLoader<ResponseList<Status>> {
 //                DialogUtil.showErrorDialog(activity, "エラー", e.getMessage(), 0, null, "OK", null);
             }
         }
+        Log.d("【TimelineTask】", "size = "+homeTimeline.size());
         return homeTimeline;
     }
 }

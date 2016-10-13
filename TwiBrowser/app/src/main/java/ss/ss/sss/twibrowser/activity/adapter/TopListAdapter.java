@@ -233,11 +233,6 @@ public class TopListAdapter extends BaseAdapter implements View.OnClickListener,
     // Public Method
     // ////////////////////////////////////////////////////////
 
-    // TODO: いらなくなったら消す
-    public void testLog() {
-//        Log.d("【さささ】【テストログ】", mDataList.get(mDataList.size() - 1).getText());
-    }
-
     /**
      * リストに追加します。
      *
@@ -261,11 +256,11 @@ public class TopListAdapter extends BaseAdapter implements View.OnClickListener,
     }
 
     /**
-     * さらよみで使用するIDを返却します。
+     * MaxIdを取得します。
      *
-     * @return MaxID
+     * @return maxId
      */
-    public long getAdditionalRedingId() {
+    public long getMaxId() {
         if (mDataList == null || mDataList.size() == 0) {
             return -1;
         }
@@ -274,16 +269,35 @@ public class TopListAdapter extends BaseAdapter implements View.OnClickListener,
     }
 
     /**
-     * 更新で使用するIDを返却します。
+     * SinceIdを取得します。
      *
-     * @return SinceID
+     * @return ID
      */
-    public long getUpdateReadingId() {
+    public long getSinceId() {
         if (mDataList == null || mDataList.size() == 0) {
             return -1;
         }
 
         return getItemId(0);
+    }
+
+    /**
+     * アダプターに設定されているリストを返却する。
+     *
+     * @return リスト
+     */
+    public List<Status> getItems() {
+        return mDataList;
+    }
+
+    /**
+     * キャッシュに保存するタイムラインを返却します。
+     *
+     * @return タイムラインリスト
+     */
+    public ArrayList<Status> getItemsForCache(final int visiblePosition) {
+        int lastItem = visiblePosition + 50 > mDataList.size() ? mDataList.size() : visiblePosition + 50;
+        return new ArrayList<>(mDataList.subList(0, lastItem));
     }
 
     // ////////////////////////////////////////////////////////
